@@ -5,7 +5,7 @@ function Login() {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        axios.get('https://node-vesta-commercial.onrender.com/api/auth/login', { withCredentials: true })
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, { withCredentials: true })
             .then(res => setUser(res.data.user))
             .catch(() => setUser(null));
     }, []);
@@ -13,7 +13,7 @@ function Login() {
     const handleLogin = (e) => {
         e.preventDefault();
         const { email, password } = e.target.elements;
-        axios.post('https://node-vesta-commercial.onrender.com/api/auth/login', { email: email.value, password: password.value })
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, { email: email.value, password: password.value })
             .then(res => {
                 setUser(res.data.user)
             })
@@ -21,11 +21,11 @@ function Login() {
     };
 
     const handleGoogleLogin = () => {
-        window.location.href = 'https://node-vesta-commercial.onrender.com/api/auth/google';
+        window.location.href = `${import.meta.env.VITE_BACKEND_URL}/api/auth/google`;
     };
 
     const handleLogout = () => {
-        axios.get('https://node-vesta-commercial.onrender.com/api/auth/logout', { withCredentials: true })
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/auth/logout`, { withCredentials: true })
             .then(() => setUser(null))
             .catch(err => alert(err.response.data.error));
     };

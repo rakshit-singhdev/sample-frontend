@@ -16,7 +16,7 @@ export default function ResetPasswordPage() {
         }
 
         try {
-            const response = await fetch("https://node-vesta-commercial.onrender.com/api/auth/reset-password", {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/reset-password`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
