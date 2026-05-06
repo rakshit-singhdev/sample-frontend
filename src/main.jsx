@@ -1,13 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createHashRouter } from "react-router";
+import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Login from './pages/Login.jsx';       
 import Dashboard from './pages/Dashboard.jsx';       
 import ResetPasswordPage from './pages/ForgotPassword.jsx';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Login/>,
@@ -21,8 +21,7 @@ const router = createHashRouter([
     element: <ResetPasswordPage/>,
   }
 ]);
-console.log(import.meta.env.VITE_BACKEND_URL)
-console.log(import.meta.env.MODE)
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />

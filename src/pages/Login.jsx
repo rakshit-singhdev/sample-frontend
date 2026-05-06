@@ -21,6 +21,7 @@ function Login() {
     };
 
     const handleGoogleLogin = () => {
+        console.log(import.meta.env.VITE_BACKEND_URL)
         window.location.href = `${import.meta.env.VITE_BACKEND_URL}/api/auth/google`;
     };
 
