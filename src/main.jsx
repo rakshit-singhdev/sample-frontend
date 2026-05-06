@@ -21,7 +21,8 @@ const router = createHashRouter([
     element: <ResetPasswordPage/>,
   }
 ]);
-
+console.log(import.meta.env.VITE_BACKEND_URL)
+console.log(import.meta.env.MODE)
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
