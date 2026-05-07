@@ -34,7 +34,7 @@ const Login = () => {
                 }
             );
 
-            const { accessToken, user } = res.data.data;
+            const { accessToken, user } = res.data;
 
             localStorage.setItem('accessToken', accessToken);
 

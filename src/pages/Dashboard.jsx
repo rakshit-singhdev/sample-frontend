@@ -28,7 +28,7 @@ const Dashboard = () => {
                     }
                 );
 
-                setUser(res.data.user || res.data.data?.user);
+                setUser(res.data.user);
             } catch (error) {
                 console.error(error);
 
@@ -74,13 +74,14 @@ const Dashboard = () => {
 
             {user ? (
                 <>
-                    <p>
-                        <strong>Name:</strong> {user.name}
-                    </p>
-
-                    <p>
-                        <strong>Email:</strong> {user.email}
-                    </p>
+                    {Object.entries(user).map(([key, value]) => (
+                        <p key={key}>
+                            <strong>{key}:</strong>{' '}
+                            {typeof value === 'object'
+                                ? JSON.stringify(value)
+                                : String(value)}
+                        </p>
+                    ))}
 
                     <button onClick={handleLogout}>
                         Logout
