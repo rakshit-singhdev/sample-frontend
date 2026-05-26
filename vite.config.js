@@ -1,13 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // base:"/sample-frontend/",
+
   server: {
     allowedHosts: [
       'primp-snowbird-geometry.ngrok-free.dev'
-    ]
-  }
-})
+    ],
+
+    proxy: {
+      '/arcgis': {
+        target: 'https://sampleserver6.arcgisonline.com',
+
+        changeOrigin: true,
+
+        secure: true,
+      },
+    },
+  },
+});

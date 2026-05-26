@@ -4,16 +4,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"scripts": {
+  "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:stage": "vite build --mode stage",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build:stage",
-    "deploy": "netlify deploy --prod" 
+    "deploy": "netlify deploy --prod"
   },
   "dependencies": {
+    "@arcgis/core": "^5.0.19",
+    "@arcgis/map-components": "^5.0.19",
     "axios": "^1.15.2",
     "dotenv": "^17.4.2",
     "react": "^19.2.4",
